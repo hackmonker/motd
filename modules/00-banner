@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
-/usr/bin/env figlet "$(hostname)" | /usr/bin/env lolcat -f
+set -euo pipefail
+# shellcheck source=./framework.sh
+source "${BASE_DIR}/framework.sh"
 
+hostname=${HOSTNAME:-$(hostname)}
 
+print_columns "" "${CA}$(figlet "$(hostname)" | /usr/bin/env lolcat -f
+)${CN}"
